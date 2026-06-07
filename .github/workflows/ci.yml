@@ -48,3 +48,13 @@ jobs:
       - name: Push Image
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/fastapi-cicd-demo:latest
+  deploy:
+
+    needs: docker
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Render Deploy
+        run: |
+            curl "${{ secrets.RENDER_DEPLOY_HOOK }}"
