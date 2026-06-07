@@ -11,5 +11,5 @@ def test_root():
 
     assert response.status_code == 200
     assert response.json() == {
-        "message": "Hello CI/CD"
+        "message": "Hello CI/CD just deployed my 1st FastAPI app with GitHub Actions and Docker!"
     }
